@@ -4,14 +4,14 @@ A nézetek wireFrame struktúrája magyarázatokkal megtalálható itt: https://
 
 ## Gyűjtőhely nézete
 Egy konkrét gyűjtőhely adatlapja
-wiewGyujtopont.jpg
+![alt text](https://raw.githubusercontent.com/borazslo/koordinaltgyujtes/main/viewGyujtopont.jpg "Egy gyűjtőpont nézete")
 
 ## Listanézet
 Különféle szűrökkel ellátott listanézet
-viewList.jpg
+![alt text](https://raw.githubusercontent.com/borazslo/koordinaltgyujtes/main/viewList.jpg "Lista nézet")
 
 ## Térkép nézete
 Lehetne ilyen is
 
 ## Menü
-viewMenu.jpg
+![alt text](https://raw.githubusercontent.com/borazslo/koordinaltgyujtes/main/viewMenu.jpg "Menü")
