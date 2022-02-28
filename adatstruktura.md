@@ -1,4 +1,4 @@
-#Az adatstruktúra
+# Az adatstruktúra
 
 ## Gyűjtőhely
 Például: pirpócsi Kovács Tihamér Művelődésiház
@@ -57,6 +57,7 @@ Például: Magyar Máltai Szeretetszolgálat
 * __email__ (_string_)*: email cím
 * (__intezmenyek__ (_look up table, multiple_): a _Felhasználók_ csatlakozhatnak egy-egy intézményhez. Az intézmény oldaláról van definiálva?)
 * __isadmin__ (_boolean__)*: nincs túl sok szintű felhasználó. admin vagy intézményhez tartozó valaki
+* __validated__ (_enum(0,1,2_): azonosítva van-e a felhasználó? 0 = nem; 1 = email alapján (regisztrációkor); 2 = fel is hívtuk kézzel telefonon
 
 ## watchdog
 A változtatásokat követni szeretnék minden gyűjtőhelyen.
