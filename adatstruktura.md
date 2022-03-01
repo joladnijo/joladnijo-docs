@@ -23,6 +23,10 @@ Például: pirpócsi Kovács Tihamér Művelődésiház
 * __comment__ (_string_): bármilyen további leírás. pl hogy hánytól hányig, vagy valami egyéb
 * __endDate__ (_timestamp_): Meg lehet adni, hogy a gyűjtés lejárjon magától. Vagy amikor kikapcsolják, akkor a leállítás időpőntját adja meg zárásnak és így leáll.
 
+unique('_slug_') -> viszont változáskor meg kellene őriznünk a régit is talán, hogy az oldalra mutató linkek ne törjenek el?
+
+unique('_name_') -> biztos?
+
 ## Gyűjtenivalók
 Például: szappantartó
 * __id__ (_int_):  azonosító
@@ -73,12 +77,25 @@ A változtatásokat követni szeretnék minden gyűjtőhelyen.
 * __országosId__ (_int_):  OrszágosSzervezetek azonosító
 * __validated__ (_boolean_): hogy jó van-e hagyva a felsőbb szervet részéről
 
+unique('_helyId_-_orszagosId_')
+
 ## lookUp: Intézmények - OrszágosSzervezetek
 * __intézményId__ (_int_):  Intézmények azonosító
 * __országosId__ (_int_):  OrszágosSzervezetek azonosító
 * __validated__ (_boolean_): hogy jó van-e hagyva a felsőbb szervet részéről
 
+unique('_intézményId_-_orszagosId_')
+
 ## lookUp: Felhasználók - Intézmények
 * __intézményId__ (_int_):  Intézmények azonosító
 * __userId__ (_int_):  Felhasználók azonosító
 * __validated__ (_boolean_): hogy jó van-e hagyva a felsőbb szervet részéről
+
+unique('_intézményId_-_userId_')
+
+## lookup: Gyűjtőhelyek - Gyűjtenivelók
+* __helyId__ (_int_):  Gyűjtőhelyek azonosító
+* __adomanyId__ (_int_):  Gyűjtenivaló azonosító
+* __type__ (_enum_): várják / nem várják / teli készlet
+
+unique('_helyId_-_adomanyId_-_type_')
