@@ -3,6 +3,8 @@ A segélygyűjtések koordinálást segítő honlap és adatbázis
 
 Az Ukrajnából menekülők okán (is) nagyon sok helyen zajlik aktuális pillanatban nagyon sokféle gyűjtés. Sokszor már nem is tudjuk követni, hogy hol és mit gyűjtenek. Ráadásul állandóan változik a helyzet, hogy mire van szükség és mire nincs. Ezért készülhetne egy honlap ami összefogja azokat, akik szeretnék közösen kezelni a gyűjtendő dolgokat.
 
+PO (féle): Elek Laci SJ (elek.laszlo@jezsuita.hu)
+
 ## Specifikáció
 * open source, github alapú, CD/CI pipeline
 * Részletes [Nézetek / Wireframe](wireframes.md)
