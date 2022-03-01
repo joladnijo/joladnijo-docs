@@ -1,17 +1,25 @@
-# Koordinált gyűjtés
+# Jól adni jó - Koordinált gyűjtés
 A segélygyűjtések koordinálást segítő honlap és adatbázis
 
 Az Ukrajnából menekülők okán (is) nagyon sok helyen zajlik aktuális pillanatban nagyon sokféle gyűjtés. Sokszor már nem is tudjuk követni, hogy hol és mit gyűjtenek. Ráadásul állandóan változik a helyzet, hogy mire van szükség és mire nincs. Ezért készülhetne egy honlap ami összefogja azokat, akik szeretnék közösen kezelni a gyűjtendő dolgokat.
 
-__Specifikáció:__
-* [Nézetek / Wireframe](wireframes.md)
-* [Adatstruktúra](adatstruktura.md)
+## Specifikáció
+* open source, github alapú, CD/CI pipeline
+* Részletes [Nézetek / Wireframe](wireframes.md)
+* Előkészített [Adatstruktúra](adatstruktura.md)
+* További [Feature Requestek](../../issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 
-## Gyertek csatlakozzatok a megvalósításhoz!
+## Gyere segíteni nekünk!
+Keresünk önkéntes IT szakembereket, akikkel közösen megalkothatjuk, fejleszthetjük és fenntarthatjuk ezt a projektet.
+- Be lehet csatlakozni akár csak egy-egy sprintre is
+- Szükség esetén online rövid status megbeszéléseket is tudunk csinálni, hogy hatékonyabban dolgozzunk együtt.
+- Különösen fontos az elején olyan szakember aki az alapokat segítségünkkel felállítja
+- Scrum Master féle és PM féle önkéntes pozíciókban is lehet segíteni
+- Jelentkezés itt a githubon [a #4-es issunál](../../issues/4)!
 
-__Első lépések__
+## Első lépések
 * specifikáció pontosítása
 * [keretrendszer meghatározása](../../issues/1) (a teljesen egyedi fejlesztés túl nehéz, nem?)
-* szerver megtalálása
+* [szerver megtalálása](../../issues/3)
 * CD/CI pipeline felállítása
-* valósítsuk meg
+* Valósítsuk meg!
