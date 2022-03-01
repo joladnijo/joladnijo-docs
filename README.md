@@ -5,6 +5,10 @@ Az Ukrajnából menekülők okán (is) nagyon sok helyen zajlik aktuális pillan
 
 PO (féle): Elek Laci SJ (elek.laszlo@jezsuita.hu)
 
+Bejelentkezésre lehetőség [a #4-es issunál](../../issues/4)!
+
+Slack csatornánkba [itt lehet bejutni](https://join.slack.com/t/jladnij/shared_invite/zt-14o2v6u1d-E3XUeqiP3IZAmPFIgxLqvw).
+
 ## Specifikáció
 * open source, github alapú, CD/CI pipeline
 * Részletes [Nézetek / Wireframe](wireframes.md)
