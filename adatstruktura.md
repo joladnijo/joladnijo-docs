@@ -4,6 +4,7 @@
 Például: pirpócsi Kovács Tihamér Művelődésiház
 * __id__ (_int_)*:  azonosító
 * __name__ (_string_)*: név
+* __slug__ (_string_)*: url kompatibilis rövid név
 * __intezmeny__ (_int_)*: foreign key az _Intézmény_ táblához
 * __addressCountryCode__ (_string(2)_): kétbetűs ISO kódja az országnak
 * __addressPostalCode__ (_string_): irányítószám (külföld miatt sokféle lehet)
