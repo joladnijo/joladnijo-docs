@@ -1,7 +1,8 @@
 # Jól adni jó - Koordinált gyűjtés
-A segélygyűjtések koordinálást segítő honlap és adatbázis
 
-Az Ukrajnából menekülők okán (is) nagyon sok helyen zajlik aktuális pillanatban nagyon sokféle gyűjtés. Sokszor már nem is tudjuk követni, hogy hol és mit gyűjtenek. Ráadásul állandóan változik a helyzet, hogy mire van szükség és mire nincs. Ezért készülhetne egy honlap ami összefogja azokat, akik szeretnék közösen kezelni a gyűjtendő dolgokat.
+Egy minimalista honlap amin a segélyszervezetek és a velük együttműködő gyűjtőpontok (plébániák, önkormányzatok, klubbok, stb) tudják jelezni (és a jelzést frissen tartani) hogy mire van és mire nincs szükségük, igényük.
+
+Probléma amire válaszol: Az Ukrajnából menekülők okán (is) nagyon sok helyen zajlik aktuális pillanatban nagyon sokféle gyűjtés. Sokszor már nem is tudjuk követni, hogy hol és mit gyűjtenek. Ráadásul állandóan változik a helyzet, hogy mire van szükség és mire nincs. Ezért készülhetne egy honlap ami összefogja azokat, akik szeretnék közösen kezelni a gyűjtendő dolgokat.
 
 PO (féle): Elek Laci SJ (elek.laszlo@jezsuita.hu)
 
