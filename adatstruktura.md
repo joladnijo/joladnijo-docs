@@ -64,8 +64,9 @@ Például: Magyar Máltai Szeretetszolgálat
 * __isadmin__ (_boolean__)*: nincs túl sok szintű felhasználó. admin vagy intézményhez tartozó valaki
 * __validated__ (_enum(0,1,2_): azonosítva van-e a felhasználó? 0 = nem; 1 = email alapján (regisztrációkor); 2 = fel is hívtuk kézzel telefonon
 
-## watchdog
+## feed / watchdog
 A változtatásokat követni szeretnék minden gyűjtőhelyen.
+Kérdés: lehet hogy a lookup gyűjtőpont-adomány igazából egyben van ezzel a táblával?
 * __id__ (_int_):  azonosító
 * __date__ (_timestamp_)
 * __user__ (_int_): foreignKey az Felhasználóhoz
@@ -94,8 +95,11 @@ unique('_intézményId_-_orszagosId_')
 unique('_intézményId_-_userId_')
 
 ## lookup: Gyűjtőhelyek - Gyűjtenivelók
+Kérdés: lehet hogy a feed/watchdoggal igazából egyben van ezzel a táblával?
 * __helyId__ (_int_):  Gyűjtőhelyek azonosító
 * __adomanyId__ (_int_):  Gyűjtenivaló azonosító
 * __type__ (_enum_): várják / nem várják / teli készlet
+* __note__ (_string_): részletesebb leírás, vagy mennyiség, vagy bármi
+* __flag__ (_boolean_): lehessen kiemelni / sürgőssé tenni gyűjtenivalót. (Kérdés: akár elavulhasson automatikusan. vagy a type-ba beleépíteni?)
 
 unique('_helyId_-_adomanyId_-_type_')
