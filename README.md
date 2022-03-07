@@ -45,6 +45,9 @@ Slack csatornánkba [itt lehet bejutni](https://join.slack.com/t/jladnij/shared_
 * Előkészített [Adatstruktúra](adatstruktura.md)
 * További [Feature Requestek](../../issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 
+* backend: django - https://github.com/joladnijo/joladnijo-backend
+* frontend: react - https://github.com/joladnijo/joladnijo-webapp
+
 ## Gyere segíteni nekünk!
 Keresünk önkéntes IT szakembereket, akikkel közösen megalkothatjuk, fejleszthetjük és fenntarthatjuk ezt a projektet.
 - Be lehet csatlakozni akár csak egy-egy sprintre is
