@@ -40,13 +40,16 @@ Bejelentkezésre lehetőség [a #4-es issunál](../../issues/4)!
 Slack csatornánkba [itt lehet bejutni](https://join.slack.com/t/jladnij/shared_invite/zt-14o2v6u1d-E3XUeqiP3IZAmPFIgxLqvw).
 
 ## Specifikáció
+Részletek kommunikáció a [slack](https://joladnijo.slack.com/)en.
 * open source, github alapú, CD/CI pipeline
 * Részletes [Nézetek / Wireframe](wireframes.md)
 * Előkészített [Adatstruktúra](adatstruktura.md)
-* További [Feature Requestek](../../issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
-
 * backend: django - https://github.com/joladnijo/joladnijo-backend
 * frontend: react - https://github.com/joladnijo/joladnijo-webapp
+* (belső) API: REST, JWT auth, verziószám nélkül
+* angol kód, akár magyar kommentek
+* json: camelCase
+* github: munka az issue branch-én, majd merghez request review a githubon, majd merge a master branch-re és így automatikus deploy a staging-en. Ha minden jó, akkor merge a production brench-be és onnan automatikusan megy a deploy.
 
 ## Gyere segíteni nekünk!
 Keresünk önkéntes IT szakembereket, akikkel közösen megalkothatjuk, fejleszthetjük és fenntarthatjuk ezt a projektet.
