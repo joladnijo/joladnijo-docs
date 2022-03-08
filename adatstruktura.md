@@ -1,58 +1,61 @@
 # Az adatstruktúra
 
-## Gyűjtőhely
+## AidPoints (Gyűjtőhely)
 Például: pirpócsi Kovács Tihamér Művelődésiház
 * __id__ (_int_)*:  azonosító
 * __name__ (_string_)*: név
 * __slug__ (_string_)*: url kompatibilis rövid név
-* __intezmeny__ (_int_)*: foreign key az _Intézmény_ táblához
+* __organization__ (_int_)*: foreign key az _Organizations_ táblához
+* MVP után: __nationalOrganizations__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.)
 * __addressCountryCode__ (_string(2)_): kétbetűs ISO kódja az országnak
 * __addressPostalCode__ (_string_): irányítószám (külföld miatt sokféle lehet)
 * __addressCity__ (_string_): város neve (hely nyelven?)
 * __addressStreet__ (_string_): utca, házszám, vagy ami van
+* __addressNote__ (_string_): pl. "a Thököly út felől"
 * __geoLocation__ (_point_)*: koordináták, hogy odataláljunk
 * __phone__ (_string_): telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)
 * __email__ (_string_): email cím
 * __facebook__ (_string_): facebook teljes vagy uri elérhetőség
-* __orszagosSzervezetek__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.)
-* __lastUpdated__ (_timestamp_)*: frissítettség idpntja
-* __adományokJöhetnek__ (_look up table, multiple_): a _Gyűjtenivalók_ közül mik vannak itt beikszelve
-* __adományokNeJöjjenek__ (_look up table, multiple_): a _Gyűjtenivalók_ közül mik vannak itt beikszelve
-* __pénzAdományok__ (_boolean_): fogad-e pénzadományt
-* __pénzAdományokLeírás__ (_longText_): egybe html formázva újsorokkal akár linkekkel bankszámlaszám meg amit akartok (_vagy legyen több külön mező?_)
-* __comment__ (_string_): bármilyen további leírás. pl hogy hánytól hányig, vagy valami egyéb
-* __endDate__ (_timestamp_): Meg lehet adni, hogy a gyűjtés lejárjon magától. Vagy amikor kikapcsolják, akkor a leállítás időpőntját adja meg zárásnak és így leáll.
+* __url__ (_string_): http-vel vagy anélkül. Ha nincs eleje, akkor feltételezzük, hogy https 
+* __contactName__ (_string_): kapcsolattartó neve akit nyilvánosan fel lehet hívni (nekünk van egy felhasználónk is általában)
+* __contactNote__ (_string_): a hellyel való kapcsolathoz kiegészítő infó. 
+* __lastUpdate__ (_timestamp_)*: frissítettség időntja
+* __assetsRequested__ (_look up table, multiple_): az _Assets_ táblával van összekötve. Amire szükség van.
+* __assetsFulfilled__ (_look up table, multiple_): az _Assets_ táblával van összekötve. Amire már nincs szükség (de azért legyen kiírva)
+* __assetsOverloaded__ (_look up table, multiple_): az _Assets_ táblával van összekötve. Amiből már annyi van mint a csuda. Vihetik mások is. 
+* __moneyAccepted__ (_boolean_): fogad-e pénzadományt
+* __moneyDescription__ (_longText_): egybe html formázva újsorokkal akár linkekkel bankszámlaszám meg amit akartok (_vagy legyen több külön mező?_)
+* __note__ (_string_): bármilyen további leírás. pl hogy hánytól hányig, vagy valami egyéb
+* __campaignEnding__ (_timestamp_): Meg lehet adni, hogy a gyűjtés lejárjon magától. Vagy amikor kikapcsolják, akkor a leállítás időpőntját adja meg zárásnak és így leáll.
 
 unique('_slug_') -> viszont változáskor meg kellene őriznünk a régit is talán, hogy az oldalra mutató linkek ne törjenek el?
-
 unique('_name_') -> biztos?
 
-## Gyűjtenivalók
+## Assets
 Például: szappantartó
 * __id__ (_int_):  azonosító
-* __name__ (_string_): név (egyesszám)
-* __type__ (_enum_): 3 féle típus - tárgyi adomány, emberi erőforrás keresése/ajánlása, szállás típusú adomány
-* __icon__ (_string_): a hozzátartozó ikon elérhetősége
+* __category__ (_enum_): többféle típus lehet - tárgyi adomány, emberi erőforrás keresése/ajánlása, szállás típusú adomány, stb.
+* __type__ (_enum_): jó sokféle dolog lehet ez: asztal, ágy, cipő, ruha, stb.
+* __icon__ (_string_): a hozzátartozó ikon elérhetősége (ha a type-nak nem volt ikonja, akkor a categoriból szerzi)
+* __name__ (_string_): amire tényleg szükség van (egyesszám)
+* __note__ (_string_): a részletes leírás, ami már nem kereshető. pl: "kifejezetten narancsosat keresünk és jó sokat"
 
-## Intézmény
+
+## Organization (Intézmény, vagy akár országos szervezet)
 Például: Piripócsi Önkormányzat
 * __id__ (_int_):  azonosító
 * __name__ (_string_): név
+* __logo__ (_string_): url a logójához
 * __phone__ (_string_): telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)
 * __email__ (_string_): email cím
 * __facebook__ (_string_): facebook teljes vagy uri elérhetőség
-* __orszagosSzervezetek__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.)
-* __comment__ (_string_): bármilyen további leírás. pl hogy hánytól hányig, vagy valami egyéb
-* __contacts__ (_look up table, multiple_): a _Felhasználók_ csatlakozhatnak egy-egy intézményhez és akkor az ő elérhetőségeik a fontosak.
-
-
-## OrszágosSzervezet
-Például: Magyar Máltai Szeretetszolgálat
-* __id__ (_int_):  azonosító
-* __name__ (_string_): név
-* __contactName__ (_string_): kapcsolattartó neve akit az adminok felhívhatnak hogy adott tagszervezet hozzájuk tartozik-e
-* __contactPhone__ (_string_): előző telefonszáma
-* (__Intézmények__ (_look up table, multiple_): melyek azok az al-intézmények akikkel együttműködnek. Definiálva az _Intézmény_ felől van. Itt csak megjelenik.)
+* __contactName__ (_string_): nyilvános kapcsolattartó neve. (nekünk van általában egy felhasználónk is)
+* __contactNote__ (_string_): a kapcsolati móddal való kapcsolathoz kiegészítő infó. 
+* __note__ (_string_): a hellyel való kapcsolathoz kiegészítő infó. 
+* MVP után: __isNational__ (_boolean_): ő maga nagy szervezet-e annyira, hogy a _nationalOrganizations_ be belekerülhessen
+* (MVP után: __nationalOrganizations__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.))
+* __note__ (_string_): bármilyen további leírás. pl ősi szervezet vagy mi.
+* (__users__ (_look up table, multiple_): a _Users_ csatlakozhatnak egy-egy intézményhez és akkor az ő elérhetőségeik a fontosak.)
 
 ## Felhasználó
 * __id__ (_int_)*:  azonosító
