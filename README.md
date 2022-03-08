@@ -44,6 +44,7 @@ Részletek kommunikáció a [slack](https://joladnijo.slack.com/)en.
 * open source, github alapú, CD/CI pipeline
 * Részletes [Nézetek / Wireframe](wireframes.md)
 * Előkészített [Adatstruktúra](adatstruktura.md)
+* [Jogosultsági szintek](jogosultsagok.md)
 * backend: django - https://github.com/joladnijo/joladnijo-backend
 * frontend: react - https://github.com/joladnijo/joladnijo-webapp
 * (belső) API: REST, JWT auth, verziószám nélkül
