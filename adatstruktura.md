@@ -4,6 +4,7 @@
 Például: pirpócsi Kovács Tihamér Művelődésiház
 * __id__ (_int_)*:  azonosító
 * __name__ (_string_)*: név
+* __photo__ (_string_): fénykép jpg fájl relatív elérhetősége adott képek mappához képest
 * __slug__ (_string_)*: url kompatibilis rövid név
 * __organization__ (_int_)*: foreign key az _Organizations_ táblához
 * MVP után: __nationalOrganizations__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.)
