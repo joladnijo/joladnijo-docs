@@ -11,7 +11,7 @@ Például: pirpócsi Kovács Tihamér Művelődésiház
 * __addressCountryCode__ (_string(2)_): kétbetűs ISO kódja az országnak
 * __addressPostalCode__ (_string_): irányítószám (külföld miatt sokféle lehet)
 * __addressCity__ (_string_): város neve (hely nyelven?)
-* __addressStreet__ (_string_): utca, házszám, vagy ami van
+* __addressAddress__ (_string_): utca, házszám, vagy ami van
 * __addressNote__ (_string_): pl. "a Thököly út felől"
 * __geoLocation__ (_point_)*: koordináták, hogy odataláljunk
 * __phone__ (_string_): telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)
@@ -61,7 +61,7 @@ Például: szappantartó
 Például: Piripócsi Önkormányzat
 * __id__ (_int_):  azonosító
 * __name__ (_string_): név
-* __logo__ (_string_): url a logójához
+* (MVP után: __logo__ (_string_): url a logójához)
 * __phone__ (_string_): telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)
 * __email__ (_string_): email cím
 * __facebook__ (_string_): facebook teljes vagy uri elérhetőség
