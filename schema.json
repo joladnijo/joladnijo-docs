@@ -32,7 +32,7 @@
 			},
 			"type": "object"
 		},
-		"AidCenters": {
+		"AidCenter": {
             "properties": {
                 "address": {
 					"$ref": "#/definitions/Address",
@@ -54,33 +54,21 @@
                     "$ref": "#/definitions/CallType",
                     "description": "Adomány szállítás előtt szeretnék-e ha felvínák őket telefonon. Mindenkép / Lehetőleg / N/A / Légyszi ne."
                 },
-                "campaignEnding": {
+                "campaignEndingOn": {
                     "description": "Meg lehet adni, hogy a gyűjtés lejárjon magától. Vagy amikor kikapcsolják, akkor a leállítás időpőntját adja meg zárásnak és így leáll.",
                     "type": "DateTime"
                 },
-                "contactName": {
-                    "description": "kapcsolattartó neve akit nyilvánosan fel lehet hívni (nekünk van egy felhasználónk is általában)",
-                    "type": "string"
-                },
-                "contactNote": {
-                    "description": "A hellyel való kapcsolathoz kiegészítő infó.",
-                    "type": "string"
-                },
-                "email": {
-                    "description": "email cím",
-                    "type": "string"
-                },
-                "facebook": {
-                    "description": "Facebook teljes vagy uri elérhetőség",
-                    "type": "string"
-                },
+                "contact": {
+                    "$ref": "#/definitions/Contact",
+                    "description": "Foreign key a Contact táblához"
+                },				
                 "geoLocation": {
                     "$ref": "#/definitions/Coordinate",
                     "description": "koordináták, hogy odataláljunk"
                 },
                 "id": {
-                    "description": "Azonosító",
-                    "type": "integer"
+                    "description": "Teljesen egyedi azonosító (UUID)",
+                    "type": "uuid"
                 },
                 "lastUpdate": {
                     "description": "Frissítettség időntja",
@@ -92,11 +80,13 @@
                 },
                 "moneyDescription": {
                     "description": "egybe html formázva újsorokkal akár linkekkel bankszámlaszám meg amit akartok (vagy legyen több külön mező?)",
-                    "type": "string"
+                    "type": "string",
+					"maxLength": 1023
                 },
                 "name": {
-                    "description": "Név",
-                    "type": "string"
+                    "description": "Név (unique)",
+                    "type": "string",
+					"maxLength": "255"
                 },
                 "nationalOrganizations": {
                     "description": "Melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.)",
@@ -107,28 +97,25 @@
                 },
                 "note": {
                     "description": "bármilyen további leírás. pl hogy hánytól hányig, vagy valami egyéb",
-                    "type": "string"
+                    "type": "string",
+					"maxLength": 255
                 },
                 "organization": {
                     "$ref": "#/definitions/Organization",
                     "description": "Foreign key az Organizations táblához"
                 },
-                "phone": {
-                    "description": "telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)",
-                    "type": "string"
-                },
+
                 "photo": {
                     "description": "Fénykép jpg fájl relatív elérhetősége adott képek mappához képest",
-                    "type": "string"
+                    "type": "string",
+					"maxLength": 255
                 },
                 "slug": {
-                    "description": "Url kompatibilis rövid név",
-                    "type": "string"
+                    "description": "Url kompatibilis rövid név (unique)",
+                    "type": "string",
+					"maxLength": 255
                 },
-                "url": {
-                    "description": "Http-vel vagy anélkül. Ha nincs eleje, akkor feltételezzük, hogy https",
-                    "type": "string"
-                }
+               
             },
             "type": "object"
         },
@@ -141,6 +128,40 @@
             ],
             "type": "string"
         },
+		"Contact": {
+			"properties" : {
+                "email": {
+                    "description": "email cím",
+                    "type": "string",
+					"maxLength": 255
+                },
+                "facebook": {
+                    "description": "Facebook teljes vagy uri elérhetőség",
+                    "type": "string",
+					"maxLength": 255
+                },
+				"name": {
+                    "description": "kapcsolattartó neve akit nyilvánosan fel lehet hívni (nekünk van egy felhasználónk is általában)",
+                    "type": "string",
+					"maxLength": 255
+                },
+                "note": {
+                    "description": "A hellyel való kapcsolathoz kiegészítő infó.",
+                    "type": "string",
+					"maxLength" : 255
+                },				
+				"phone": {
+                    "description": "telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)",
+                    "type": "string",
+					"maxLength": 20
+                },
+				 "url": {
+                    "description": "Http-vel vagy anélkül. Ha nincs eleje, akkor feltételezzük, hogy https",
+                    "type": "string"
+                }
+			},
+			"type" : "object"
+		},
         "Coordinate": {
             "properties": {
                 "lat": {
@@ -154,22 +175,10 @@
         },
         "Organization": {
             "properties": {
-                "contactName": {
-                    "description": "Nyilvános kapcsolattartó neve. (nekünk van általában egy felhasználónk is)",
-                    "type": "string"
-                },
-                "contactNote": {
-                    "description": "a kapcsolati móddal való kapcsolathoz kiegészítő infó.",
-                    "type": "string"
-                },
-                "email": {
-                    "description": "Email cím",
-                    "type": "string"
-                },
-                "facebook": {
-                    "description": "Facebook teljes vagy uri elérhetőség",
-                    "type": "string"
-                },
+                "contact": {
+                    "$ref": "#/definitions/Contact",
+                    "description": "Foreign key a Contact táblához"
+                },								
                 "id": {
                     "description": "azonosító",
                     "type": "integer"
@@ -192,10 +201,6 @@
                 },
                 "note": {
                     "description": "a hellyel való kapcsolathoz kiegészítő infó. / bármilyen további leírás. pl ősi szervezet vagy mi.",
-                    "type": "string"
-                },
-                "phone": {
-                    "description": "Telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)",
                     "type": "string"
                 }
             },

@@ -10,7 +10,7 @@
 
 ## AidCenters (Gyűjtőhelyek)
 Például: pirpócsi Kovács Tihamér Művelődésiház
-* __id__ (_int_)*:  azonosító
+* __id__ (_uuid_)*:  teljesen egyedi UUID azonosító
 * __name__ (_string_)*: név
 * __photo__ (_string_): fénykép jpg fájl relatív elérhetősége adott képek mappához képest
 * __slug__ (_string_)*: url kompatibilis rövid név
@@ -18,12 +18,7 @@ Például: pirpócsi Kovács Tihamér Művelődésiház
 * MVP után: __nationalOrganizations__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.)
 * __address__ (_foreignKey_): _Address.aid_center_
 * __geoLocation__ (_point_)*: koordináták, hogy odataláljunk
-* __phone__ (_string_): telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)
-* __email__ (_string_): email cím
-* __facebook__ (_string_): facebook teljes vagy uri elérhetőség
-* __url__ (_string_): http-vel vagy anélkül. Ha nincs eleje, akkor feltételezzük, hogy https 
-* __contactName__ (_string_): kapcsolattartó neve akit nyilvánosan fel lehet hívni (nekünk van egy felhasználónk is általában)
-* __contactNote__ (_string_): a hellyel való kapcsolathoz kiegészítő infó. 
+* __contact__ (_foreignKey__): nyilvános kapcsolatartói adatok. _Contacts_ táblával összeközve
 * __lastUpdate__ (_timestamp_)*: frissítettség időntja
 * __callRequired__ (_enum('required','suggested',false,'denied')_): Adomány szállítás előtt szeretnék-e ha felvínák őket telefonon. Mindenkép / Lehetőleg / N/A / Légyszi ne.
 * __assetsRequested__ (_look up table, multiple_): az _Assets_ táblával van összekötve. Amire szükség van.
@@ -61,16 +56,23 @@ Például: szappantartó
 * __isCategory__ (_booelan_): az asset kategóriák (pl élelmiszer) és az assetek (pl: műzli szelet) ugyan olyanok csak kiemeltek a kategóriák
 * __parentId__ (_int_): ha ő valami alá tartozik. általában if isCategory ? parentId = false : parentId = true
 
+## Contacts
+* __organization*__ (_foreign key_)
+* __aid_center__ (_foreign key (1:1, nullable)_)
+* __phone__ (_varchar(20)_): telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)
+* __email__ (_varchar(255)_): email cím
+* __facebook__ (_varchar(255)_): facebook teljes vagy uri elérhetőség
+* __url__ (_varchar(255)_): http-vel vagy anélkül. Ha nincs eleje, akkor feltételezzük, hogy https 
+* __name__ (_varchar(255)_): kapcsolattartó neve akit nyilvánosan fel lehet hívni (nekünk van egy felhasználónk is általában)
+* __note__ (_varchar(255)_): a hellyel való kapcsolathoz kiegészítő infó. 
+
+
 ## Organizations (Intézmény, vagy akár országos szervezet)
 Például: Piripócsi Önkormányzat
 * __id__ (_int_):  azonosító
 * __name__ (_string_): név
 * (MVP után: __logo__ (_string_): url a logójához)
-* __phone__ (_string_): telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)
-* __email__ (_string_): email cím
-* __facebook__ (_string_): facebook teljes vagy uri elérhetőség
-* __contactName__ (_string_): nyilvános kapcsolattartó neve. (nekünk van általában egy felhasználónk is)
-* __contactNote__ (_string_): a kapcsolati móddal való kapcsolathoz kiegészítő infó. 
+* __contact__ (_foreignKey__): nyilvános kapcsolatartói adatok. _Contacts_ táblával összeközve
 * __note__ (_string_): a hellyel való kapcsolathoz kiegészítő infó. 
 * MVP után: __isNational__ (_boolean_): ő maga nagy szervezet-e annyira, hogy a _nationalOrganizations_ be belekerülhessen
 * (MVP után: __nationalOrganizations__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.))
