@@ -1,0 +1,232 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AidCenters": {
+            "properties": {
+                "addressAddress": {
+                    "description": "Utca, házszám, vagy ami van",
+                    "type": "string"
+                },
+                "addressCity": {
+                    "description": "Város neve (hely nyelven?)",
+                    "type": "string"
+                },
+                "addressCountryCode": {
+                    "description": "Kétbetűs ISO kódja az országnak",
+                    "type": "string"
+                },
+                "addressNote": {
+                    "description": "pl. \"a Thököly út felől\"",
+                    "type": "string"
+                },
+                "addressPostalCode": {
+                    "description": "Irányítószám (külföld miatt sokféle lehet)",
+                    "type": "string"
+                },
+                "assetsFulfilled": {
+                    "description": "az Assets táblával van összekötve. Amire már nincs szükség (de azért legyen kiírva)",
+                    "type": "Asset[]"
+                },
+                "assetsOverloaded": {
+                    "description": "az Assets táblával van összekötve. Amiből már annyi van mint a csuda. Vihetik mások is.",
+                    "type": "(look up table, multiple)"
+                },
+                "assetsRequested": {
+                    "description": "Az Assets táblával van összekötve. Amire szükség van.",
+                    "type": "AssetRequest[]"
+                },
+                "callRequired": {
+                    "$ref": "#/definitions/CallType",
+                    "description": "Adomány szállítás előtt szeretnék-e ha felvínák őket telefonon. Mindenkép / Lehetőleg / N/A / Légyszi ne."
+                },
+                "campaignEnding": {
+                    "description": "Meg lehet adni, hogy a gyűjtés lejárjon magától. Vagy amikor kikapcsolják, akkor a leállítás időpőntját adja meg zárásnak és így leáll.",
+                    "type": "DateTime"
+                },
+                "contactName": {
+                    "description": "kapcsolattartó neve akit nyilvánosan fel lehet hívni (nekünk van egy felhasználónk is általában)",
+                    "type": "string"
+                },
+                "contactNote": {
+                    "description": "A hellyel való kapcsolathoz kiegészítő infó.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "email cím",
+                    "type": "string"
+                },
+                "facebook": {
+                    "description": "Facebook teljes vagy uri elérhetőség",
+                    "type": "string"
+                },
+                "geoLocation": {
+                    "$ref": "#/definitions/Coordinate",
+                    "description": "koordináták, hogy odataláljunk"
+                },
+                "id": {
+                    "description": "Azonosító",
+                    "type": "integer"
+                },
+                "lastUpdate": {
+                    "description": "Frissítettség időntja",
+                    "type": "Date"
+                },
+                "moneyAccepted": {
+                    "description": "fogad-e pénzadományt",
+                    "type": "boolean"
+                },
+                "moneyDescription": {
+                    "description": "egybe html formázva újsorokkal akár linkekkel bankszámlaszám meg amit akartok (vagy legyen több külön mező?)",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Név",
+                    "type": "string"
+                },
+                "nationalOrganizations": {
+                    "description": "Melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.)",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "note": {
+                    "description": "bármilyen további leírás. pl hogy hánytól hányig, vagy valami egyéb",
+                    "type": "string"
+                },
+                "organization": {
+                    "$ref": "#/definitions/Organization",
+                    "description": "Foreign key az Organizations táblához"
+                },
+                "phone": {
+                    "description": "telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)",
+                    "type": "string"
+                },
+                "photo": {
+                    "description": "Fénykép jpg fájl relatív elérhetősége adott képek mappához képest",
+                    "type": "string"
+                },
+                "slug": {
+                    "description": "Url kompatibilis rövid név",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Http-vel vagy anélkül. Ha nincs eleje, akkor feltételezzük, hogy https",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CallType": {
+            "enum": [
+                "denied",
+                "false",
+                "required",
+                "suggested"
+            ],
+            "type": "string"
+        },
+        "Coordinate": {
+            "properties": {
+                "lat": {
+                    "type": "number"
+                },
+                "lng": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Organization": {
+            "properties": {
+                "contactName": {
+                    "description": "Nyilvános kapcsolattartó neve. (nekünk van általában egy felhasználónk is)",
+                    "type": "string"
+                },
+                "contactNote": {
+                    "description": "a kapcsolati móddal való kapcsolathoz kiegészítő infó.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Email cím",
+                    "type": "string"
+                },
+                "facebook": {
+                    "description": "Facebook teljes vagy uri elérhetőség",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "azonosító",
+                    "type": "integer"
+                },
+                "isNational": {
+                    "description": "Ő maga nagy szervezet-e annyira, hogy a nationalOrganizations be belekerülhessen",
+                    "type": "boolean"
+                },
+                "logo": {
+                    "description": "Url a logójához)",
+                    "type": "*"
+                },
+                "name": {
+                    "description": "név",
+                    "type": "string"
+                },
+                "nationalOrganizations": {
+                    "description": "Melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.))",
+                    "type": "Organization[]"
+                },
+                "note": {
+                    "description": "a hellyel való kapcsolathoz kiegészítő infó. / bármilyen további leírás. pl ősi szervezet vagy mi.",
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "Telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "User": {
+            "properties": {
+                "email": {
+                    "description": "E-mail cím",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Felhasználó azonosítója (UUID / egyéb azonosító?)",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "hivatalos név",
+                    "type": "string"
+                },
+                "organizations": {
+                    "$ref": "#/definitions/Organization",
+                    "description": "A Felhasználók csatlakozhatnak egy-egy intézményhez. Az intézmény oldaláról van definiálva?)"
+                },
+                "phone": {
+                    "description": "telefonszám. legyen kötelező.",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "felhasználónév",
+                    "type": "string"
+                },
+                "validated": {
+                    "$ref": "#/definitions/UserScreenLevel",
+                    "description": "azonosítva van-e a felhasználó? 0 = nem; 1 = email alapján (regisztrációkor); 2 = fel is hívtuk kézzel telefonon"
+                }
+            },
+            "type": "object"
+        },
+        "UserScreenLevel": {
+            "enum": [
+                "EMAIL_VALIDATED",
+                "NOT_SCREENED",
+                "PHONE_VALIDATED"
+            ],
+            "type": "string"
+        }
+    }
+}
+
