@@ -39,16 +39,34 @@
                     "description": "Cím minden részlettel együtt.",
                 },                
                 "assetsFulfilled": {
-                    "description": "az Assets táblával van összekötve. Amire már nincs szükség (de azért legyen kiírva)",
-                    "type": "Asset[]"
+					"description": "az Assets táblával van összekötve. Amire már nincs szükség (de azért legyen kiírva)",
+					"type": "array",
+                    "items": {
+						"type": "object",
+						"additionalProperties": {
+							"$ref": "#/definitions/AssetRequest"
+						}
+					}                    
                 },
                 "assetsOverloaded": {
                     "description": "az Assets táblával van összekötve. Amiből már annyi van mint a csuda. Vihetik mások is.",
-                    "type": "(look up table, multiple)"
+					"type": "array",
+                    "items": {
+						"type": "object",
+						"additionalProperties": {
+							"$ref": "#/definitions/AssetRequest"
+						}
+					}  
                 },
                 "assetsRequested": {
                     "description": "Az Assets táblával van összekötve. Amire szükség van.",
-                    "type": "AssetRequest[]"
+					"type": "array",
+                    "items": {
+						"type": "object",
+						"additionalProperties": {
+							"$ref": "#/definitions/AssetRequest"
+						}
+					}  
                 },
                 "callRequired": {
                     "$ref": "#/definitions/CallType",
@@ -119,6 +137,38 @@
             },
             "type": "object"
         },
+		"AssetRequest" : {
+			"properties" : {
+				"name": {
+					"description": "a különféle lehetséges adományok (félig) zárt és gyakran változó listája. Pl: élelmiszer alapanyag, félkész zacskós étel, friss szendvics",
+					"type": "string",
+					"maxLength": 255,
+				},
+				"category": {
+					"description": "nagy kategóriák zárt listája. Pl: élelmiszer, egészségi dolgok, ruhaféle",
+					"type": "string",
+					"maxLength": 255,
+				},
+				"icon": {
+					"type": "string",
+					"maxLength": 50,
+				},
+				"note": {
+					"description": "kiegészítő pontosító információk. Pl: kifejzetten vegán szendvics is jöhet",
+					"type": "string",
+					"maxLength": 255,
+				},
+				"urgent": {
+					"type": "boolean"
+				},
+				"status": {
+					"description": "kérünk hozzatok | kérjük, ne hozzatok = elég van ebből | túl sok is van ebből | false = n/a = törölt = stb",
+					"$ref": "#/definitions/AssetRequestStatus"
+				}			
+			},
+			"required" : [ "name", "category", "status" ],
+			"type": "object"
+		},
         "CallType": {
             "enum": [
                 "denied",
@@ -206,6 +256,16 @@
             },
             "type": "object"
         },
+        "AssetRequestStatus": {
+            "enum": [
+				false,
+                "requested",
+				"fulfilled",
+				"overloaded"
+            ],
+            "type": "string"
+        },
+		
         "User": {
             "properties": {
                 "email": {

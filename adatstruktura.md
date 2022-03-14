@@ -38,9 +38,8 @@ Például: Pirpócsi gyűjtőpontnak élelmiszer kategóriában műzli szelet fa
 * __id__ (_int_):  azonosító
 * __aidCenterId__ (foreign key, _int_): hogy melyik gyűjtőponthoz tartozik ez a konkrét szükség
 * __category__ (_enum_): többféle típus lehet - tárgyi adomány, emberi erőforrás keresése/ajánlása, szállás típusú adomány, stb.
-* __type__ (_enum_): jó sokféle dolog lehet ez: asztal, ágy, cipő, ruha, stb.
+* __name__ (_enum_): jó sokféle dolog lehet ez: asztal, ágy, cipő, ruha, stb.
 * __icon__ (_string_): a hozzátartozó ikon elérhetősége (ha a type-nak nem volt ikonja, akkor a categoriból szerzi)
-* __name__ (_string_): amire tényleg szükség van (egyesszám)
 * __note__ (_string_): a részletes leírás, ami már nem kereshető. pl: "kifejezetten narancsosat keresünk és jó sokat"
 * __urgent__ (_boolean_): ha fontos, kiemelt, sürgős akkor kipipálható. MVP után: Ennek változása azonnali üzenetet eredményez felirakozónak / fb-ra / stb.
 
