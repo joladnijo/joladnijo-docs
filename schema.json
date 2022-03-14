@@ -1,28 +1,43 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "AidCenters": {
+		"Address" : {
+			"properties" : {
+					"countryCode": {
+						"description": "Kétbetűs ISO kódja az országnak",
+						"type": "string",
+						"minLength": 2,
+						"maxLength": 2
+					},
+					"postalCode": {
+						"description": "Irányítószám (külföld miatt sokféle lehet)",
+						"type": "string",
+						"maxLength": 10
+					},
+					"city": {
+							"description": "Város neve (hely nyelven?)",
+							"type": "string",
+							"maxLength": 50
+						},
+					"address": {
+							"description": "Utca, házszám, vagy ami van",
+							"type": "string",
+							"maxLength": 100
+					},
+					"note": {
+						"description": "pl. \"a Thököly út felől\"",
+						"type": "string",
+						"maxLength": 255
+					}
+			},
+			"type": "object"
+		},
+		"AidCenters": {
             "properties": {
-                "addressAddress": {
-                    "description": "Utca, házszám, vagy ami van",
-                    "type": "string"
-                },
-                "addressCity": {
-                    "description": "Város neve (hely nyelven?)",
-                    "type": "string"
-                },
-                "addressCountryCode": {
-                    "description": "Kétbetűs ISO kódja az országnak",
-                    "type": "string"
-                },
-                "addressNote": {
-                    "description": "pl. \"a Thököly út felől\"",
-                    "type": "string"
-                },
-                "addressPostalCode": {
-                    "description": "Irányítószám (külföld miatt sokféle lehet)",
-                    "type": "string"
-                },
+                "address": {
+					"$ref": "#/definitions/Address",
+                    "description": "Cím minden részlettel együtt.",
+                },                
                 "assetsFulfilled": {
                     "description": "az Assets táblával van összekötve. Amire már nincs szükség (de azért legyen kiírva)",
                     "type": "Asset[]"

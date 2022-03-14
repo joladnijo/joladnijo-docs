@@ -1,5 +1,13 @@
 # Az adatstruktúra
 
+## Address (Cím)
+* __aid_center__ (_foreign key (1:1)_): 
+* __country_code__ (_varchar(3)_): kétbetűs ISO kódja az országnak
+* __postal_code__ (_varchar(10)_): irányítószám (külföld miatt sokféle lehet)
+* __city__ (_varchar(50)_): város neve (hely nyelven?)
+* __address__ (_varchar(100)_): utca, házszám, vagy ami van
+* __note__ (_varchar(255)_): pl. "a Thököly út felől"
+
 ## AidCenters (Gyűjtőhelyek)
 Például: pirpócsi Kovács Tihamér Művelődésiház
 * __id__ (_int_)*:  azonosító
@@ -8,11 +16,7 @@ Például: pirpócsi Kovács Tihamér Művelődésiház
 * __slug__ (_string_)*: url kompatibilis rövid név
 * __organization__ (_int_)*: foreign key az _Organizations_ táblához
 * MVP után: __nationalOrganizations__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.)
-* __addressCountryCode__ (_string(2)_): kétbetűs ISO kódja az országnak
-* __addressPostalCode__ (_string_): irányítószám (külföld miatt sokféle lehet)
-* __addressCity__ (_string_): város neve (hely nyelven?)
-* __addressAddress__ (_string_): utca, házszám, vagy ami van
-* __addressNote__ (_string_): pl. "a Thököly út felől"
+* __address__ (_foreignKey_): _Address.aid_center_
 * __geoLocation__ (_point_)*: koordináták, hogy odataláljunk
 * __phone__ (_string_): telefonszám, vagy telefonszámok (pontosvesszővel elválasztva)
 * __email__ (_string_): email cím
@@ -72,6 +76,7 @@ Például: Piripócsi Önkormányzat
 * (MVP után: __nationalOrganizations__ (_look up table, multiple_): melyek azok az országos szervezetek akikkel együttműködnek vannak (pl. Málta, Ökumenikus, stb.))
 * __note__ (_string_): bármilyen további leírás. pl ősi szervezet vagy mi.
 * (__users__ (_look up table, multiple_): a _Users_ csatlakozhatnak egy-egy intézményhez és akkor az ő elérhetőségeik a fontosak.)
+
 
 ## Users
 * __id__ (_int_)*:  azonosító
