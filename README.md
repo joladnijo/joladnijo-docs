@@ -55,13 +55,15 @@ Légy bátor és vállalj issue-t.
 PR Review-t meg vállalj mindig!
 
 ## Specifikáció
-
-* open source, github alapú, CD/CI pipeline
+* Open source, Github alapú, CD/CI pipeline
 * Elavult vázlatok: [Nézetek / Wireframe](wireframes.md), [Adatstruktúra](adatstruktura.md), [Jogosultsági szintek](jogosultsagok.md)
-* backend: django - https://github.com/joladnijo/joladnijo-backend
-* frontend-webapp: nodejs - https://github.com/joladnijo/joladnijo-webapp
-* frontend-backoffice: auth0
 * (belső) API: REST, JWT auth, verziószám nélkül. Soruce of truth: backend
 * angol kód, akár magyar kommentek
 * json: camelCase
 * github: munka az issue branch-én, majd merghez request review a githubon, majd merge a master branch-re és így automatikus deploy a staging-en. Ha minden jó, akkor merge a production brench-be és onnan automatikusan megy a deploy.
+
+## Technológiák
+
+* Backend: Django - https://github.com/joladnijo/joladnijo-backend [Itt tudsz elkezdeni segíteni](https://github.com/joladnijo/joladnijo-backend/issues)
+* Frontend Webapp (publikus): NodeJS - Next.js - React - https://github.com/joladnijo/joladnijo-webapp [Itt tudsz elkezdeni segíteni](https://github.com/joladnijo/joladnijo-webapp/issues)
+* Frontend Backoffice (szervezetek regisztrált segítőinek): Angular 13+ https://github.com/joladnijo/joladnijo-backoffice [Itt tudsz elkezdeni segíteni](https://github.com/joladnijo/joladnijo-backoffice/blob/main/docs/contributing.md)
