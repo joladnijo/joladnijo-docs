@@ -10,7 +10,7 @@ klubbok, stb) tudják jelezni (és a jelzést frissen tartani) hogy mire van és
 Egy önkéntes csapat - sokszor egymástól is független IT szakember - akik úgy látják, hogy könnyen használható
 szoftverekkel tudnak segíteni a válságon.
 
-Project Owner - [Elek Laci SJ](elek.laszlo@jezsuita.hu)
+Project Owner - Elek Laci SJ <elek.laszlo@jezsuita.hu>
 
 ### Probléma amire válaszolunk
 
