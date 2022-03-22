@@ -10,7 +10,7 @@ __Probléma amire válaszolunk__: Az Ukrajnából menekülők okán (is) nagyon 
 #### Dokumentációnk
 * [A projekt rövid leírása](specifikacio/vizio.md) ahol képbe kerülhetsz
 * [Specifikáció](specifikacio/specifikacio.md) ami részletesebben írja, mit hogyan szeretnénk látni
-* [Mérföldkövek](specifikacio/specifikacio.md) pedig az ütemezés, mikorra szeretnénk
+* [Mérföldkövek](specifikacio/merfoldkovek.md) pedig az ütemezés, mikorra szeretnénk
 
 #### Kiket várunk?
 Helye van köztük junior és senior backend, frontend, fullstack, ux, tester és szinte bármilyen más fejlesztőnek és segítőnek. Gyere bátran akár csak egy-egy fícsör fejlesztésére. Ha kevés a tapasztalatod akkor köztünk szerezhetsz bőven.
