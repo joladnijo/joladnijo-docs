@@ -14,7 +14,7 @@ A jelenlegi folyamatunk még elég hektikus, az alábbi váz alakult ki, ami ala
 3. Fejlesztés, standupok
 4. Tesztelés, javítás (Staging környezeten)
 5. Release (Teljesen publikus felületre helyezés)
-6. Kezdjük újra #1
+6. Kezdjük újra # 1
 
 #### Mérföldkő fejlesztésének folyamata (workflow)
 - Aktuális feladatok, todolist, folyamatban lévő történések és a következő mérföldkőig tartó feladatok mint a szervezeti oldalunkon láthatóak: https://github.com/orgs/joladnijo/projects/1 (Ha 404-es hibával kidob, akkor küldj [nekem](https://github.com/borazslo) egy Github felhasználónevet és meghívlak.)
