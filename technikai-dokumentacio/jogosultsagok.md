@@ -56,23 +56,23 @@ Az erőforráson `s` saját / jogosult joggal rendelkező esetén **meg kell viz
 kapcsolódó jogosultságok lehetővé teszik-e az adott erőforráson az adott műveletet.
 
 
-| Erőforrás     | Jog (CRUD) | Jogosultsági szkóp | Claim string (JWT) | Univerzálisan elérhető (nincs korlátozva)? | Leírás                                       |
-|---------------|------------|--------------------|--------------------|--------------------------------------------|----------------------------------------------|
-| org           | a          | a                  | org:a:a            | -                                          | Szervezetek Adminisztrátora                  |
-| org           | r          | a                  | org:r:a            | +                                          | Megtekintheti a szervezeteket                |
-| org           | c          | s                  | org:c:s            | -                                          | Saját szervezetet létrehozhat                |
-| org           | u          | s                  | org:u:s            | -                                          | Saját szervezetet módosíthat                 |
-| org           | d          | s                  | org:d:s            | -                                          | Saját szervezetet törölhet                   |
-| aidcenter     | a          | a                  | aidcenter:a:a      | -                                          | Gyűjtőpontok Adminisztrátora                 |
-| aidcenter     | r          | a                  | aidcenter:r:a      | +                                          | Gyűjtőpontokat megtekinthet                  |
-| aidcenter     | c          | s                  | aidcenter:c:s      | -                                          | Saját szervezetben gyűjtőpontot létrehozhat  |
-| aidcenter     | u          | s                  | aidcenter:u:s      | -                                          | Saját szervezetben gyűjtőpontot módosíthat   |
-| aidcenter     | d          | s                  | aidcenter:d:s      | -                                          | Saját szervezetben gyűjtőpontot törölhet     |
-| asset-request | a          | a                  | asset-request:a:a  | -                                          | Bármilyen gyűjtőponton kezelheti a kéréseket |
-| asset-request | r          | a                  | asset-request:r:a  | +                                          | Bármilyen kérést megtekinthet                |
-| asset-request | c          | s                  | asset-request:c:s  | -                                          | Saját gyűjtőponton létrehozhat kérést        |
-| asset-request | u          | s                  | asset-request:u:s  | -                                          | Saját gyűjtőponton módosíthat kérést         |
-| asset-request | d          | s                  | asset-request:d:s  | -                                          | Saját gyűjtőponton törölhet kérést           |
+| Erőforrás     | Jog (CRUD) | Jogosultsági szkóp | Claim string (JWT)   | Univerzálisan elérhető (nincs korlátozva)? | Leírás                                       |
+|---------------|------------|--------------------|----------------------|--------------------------------------------|----------------------------------------------|
+| org           | a          | a                  | `org:a:a`            | -                                          | Szervezetek Adminisztrátora                  |
+| org           | r          | a                  | `org:r:a`            | +                                          | Megtekintheti a szervezeteket                |
+| org           | c          | s                  | `org:c:s`            | -                                          | Saját szervezetet létrehozhat                |
+| org           | u          | s                  | `org:u:s`            | -                                          | Saját szervezetet módosíthat                 |
+| org           | d          | s                  | `org:d:s`            | -                                          | Saját szervezetet törölhet                   |
+| aidcenter     | a          | a                  | `aidcenter:a:a`      | -                                          | Gyűjtőpontok Adminisztrátora                 |
+| aidcenter     | r          | a                  | `aidcenter:r:a`      | +                                          | Gyűjtőpontokat megtekinthet                  |
+| aidcenter     | c          | s                  | `aidcenter:c:s`      | -                                          | Saját szervezetben gyűjtőpontot létrehozhat  |
+| aidcenter     | u          | s                  | `aidcenter:u:s`      | -                                          | Saját szervezetben gyűjtőpontot módosíthat   |
+| aidcenter     | d          | s                  | `aidcenter:d:s`      | -                                          | Saját szervezetben gyűjtőpontot törölhet     |
+| asset-request | a          | a                  | `asset-request:a:a`  | -                                          | Bármilyen gyűjtőponton kezelheti a kéréseket |
+| asset-request | r          | a                  | `asset-request:r:a`  | +                                          | Bármilyen kérést megtekinthet                |
+| asset-request | c          | s                  | `asset-request:c:s`  | -                                          | Saját gyűjtőponton létrehozhat kérést        |
+| asset-request | u          | s                  | `asset-request:u:s`  | -                                          | Saját gyűjtőponton módosíthat kérést         |
+| asset-request | d          | s                  | `asset-request:d:s`  | -                                          | Saját gyűjtőponton törölhet kérést           |
 
 
 ## Javasolt döntési fa API endpoint esetén
