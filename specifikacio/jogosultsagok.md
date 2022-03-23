@@ -19,7 +19,7 @@ Megtekinthet:
 - azok adatait (hozzárendelt felhasználók kivételével)
 - feedjeit
 
-## Az`ac-admin` jogosultságok
+## Az `ac-admin` jogosultságok
 
 Minden publikus jogosultság, illetve Létrehozhat / módosíthat:
 
@@ -31,7 +31,7 @@ Minden publikus jogosultság, illetve Létrehozhat / módosíthat:
 Későbbiekben a szervezet, központ, központ kezelői jogosultságot szeretnénk szétbontani, így ezeknek a jogoknak a
 finomhangolására fel kell készülnünk.
 
-## Az`jaj-admin` jogosultságok
+## A `jaj-admin` jogosultságok
 
 A `jaj-admin`-nak mindent lehet amit a korábban felsorolt jogosultságokkal lehetséges annyi kivétellel, hogy minden
 központon, gyűjtőponton korlátozás nélkül. 

@@ -25,35 +25,36 @@ FE által használt token, tovább nem küldi, ezzel kér az Auth0-tól Access T
 
 # Access Token struktúra
 
-``json 
+```json 
 {
-"token_valid": true,
-"token_data": {
-"iss": "https://dev-ulmlyx6h.eu.auth0.com/",
-"sub": "google-oauth2|101999322819771515399",
-"aud": [
-"https://joladnijo.jmsz.hu/api/",
-"https://dev-ulmlyx6h.eu.auth0.com/userinfo"
-],
-"iat": 1648055759,
-"exp": 1648142159,
-"azp": "QnHVeivYr9bzbsRzbADhrYQb4SoKE9Md",
-"scope": "openid profile email",
-"permissions": [
-"aidcenter:c:s",
-"aidcenter:d:s",
-"aidcenter:r:a",
-"aidcenter:u:s",
-"asset-request:c:s",
-"asset-request:d:s",
-"asset-request:r:a",
-"asset-request:u:s",
-"org:r:a",
-"org:u:s"
-]
-},
-"decoded": null }
-``
+  "token_valid": true,
+  "token_data": {
+    "iss": "https://dev-ulmlyx6h.eu.auth0.com/",
+    "sub": "google-oauth2|10114942668193141514199",
+    "aud": [
+      "https://joladnijo.jmsz.hu/api/",
+      "https://dev-ulmlyx6h.eu.auth0.com/userinfo"
+    ],
+    "iat": 1648055759,
+    "exp": 1648142159,
+    "azp": "QnHVeivYr9bzbsRzbADhrYQb4SoKE9Md",
+    "scope": "openid profile email",
+    "permissions": [
+      "aidcenter:c:s",
+      "aidcenter:d:s",
+      "aidcenter:r:a",
+      "aidcenter:u:s",
+      "asset-request:c:s",
+      "asset-request:d:s",
+      "asset-request:r:a",
+      "asset-request:u:s",
+      "org:r:a",
+      "org:u:s"
+    ]
+  },
+  "decoded": null
+}
+```
 
 Itt a `permissions` blokk fogja tartalmazni a felhasználó jogosultságait.
 
