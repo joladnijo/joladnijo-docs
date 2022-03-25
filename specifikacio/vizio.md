@@ -12,7 +12,7 @@ keresni tudnak helyszín és egyéb paraméterek alapján, hogy hol mire van sz�
 
 * __Adományokat gyűjtő pontok felelősei__. főként a másodvonali, kisebb gyűjtőket célozzuk. Ők azok akik a
   hátországban gyűjtenek, akár a már befogadottak számára kis apparátussal és gyakorlattal.
-  Lehetnek ők plébánia, önkormányzat, cserkész csapat, klubb, bármi. A nagy szolgálatok határmenti pontjairól
+  Lehetnek ők plébánia, önkormányzat, cserkész csapat, klub, bármi. A nagy szolgálatok határmenti pontjairól
   feltételezzük hogy van nekik valamilyen raktárkészlet követő programjuk. (Igény szerint csatlakozhatnak persze.)
 * __Kis, civil adományozók__. Rengetegen jószándékkal visznek adományokat lehetőleg egy közeli pontra. Nekik segítség
   hogy adott felajánlást melyik pont fogad el a közelben leginkább.
