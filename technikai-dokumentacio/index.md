@@ -6,7 +6,7 @@ Ha fura üzletinek tűnő kifejezéseket találsz, a specifikációban találhat
 
 - [Vízió](./../specifikacio/vizio.md)
 - [Funkcionális specifikáció](./../specifikacio/specifikacio.md)
-- [Ütemezés, mérföldkövek](./../specifikacio/specifikacio.md)
+- [Ütemezés, mérföldkövek](./../specifikacio/merfoldkovek.md)
 - [Jogosultságok](./../specifikacio/jogosultsagok.md)
 
 ### Technikai megvalósítások (nörd kompatibilis dokumentáció)

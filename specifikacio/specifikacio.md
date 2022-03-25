@@ -47,7 +47,7 @@ Egy meghatározott kategóriájú adomány típus, amire egy gyűjtőhelynek sz�
 - Státusz, hogy éppen szükség van-e arra vagy akár túl sok is van belőle
     - `urgent` : nagy szükség van rá, kérik hogy azonnal hozzanak
 	- `requested`: szükség van rá, jó lenne ha hoznának
-	- `fulfilled`: kérjük, hogy ebből ne hozzanak (többet)! (Akár azért mert már túl sok is van, akár azért mert eleve sem tudtak mit csinálni vel.)
+	- `not_required`: kérjük, hogy ebből ne hozzanak (többet)! (Akár azért mert már túl sok is van, akár azért mert eleve sem tudtak mit csinálni vel.)
   
 Ezek mindegyike megjelenik a 'feed'-ben valamilyen formában.
 
