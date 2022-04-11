@@ -49,4 +49,4 @@ tud segíteni.
 # Kapcsolat
 
 Csapatunk elsődleges kommunikációs csatornája a [Slack](https://joladnijo.slack.com/)
-. ([Belépés](https://join.slack.com/t/jladnij/shared_invite/zt-14o2v6u1d-E3XUeqiP3IZAmPFIgxLqvw)).
+. ([Belépés](https://join.slack.com/t/joladnijo/shared_invite/zt-16a2jovyq-Y7JaDP5poPN2Tamy~6HBOQ)).
