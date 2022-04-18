@@ -53,11 +53,35 @@ Ezek mindegyike megjelenik a 'feed'-ben valamilyen formában.
 
 ### Feed
 
-Lista, amiben a gyűjtőpontok által rögzített `asset requestek` megjelennek. A feed adattartalma és megjelenési formája
-képernyőnként eltérő lehet, de minden esetben egy vagy több kérést csoportosít / rendez.
+Történelmi listája a gyűjtőpontok által rögzített `asset requestek` valamennyi változásának. Gyakorlatilag egy log. Bármi történik egy `asset requesttel` létrejön egy `feed item`, mely többé nem áll közvetlen összeköttetésben az eredeti `asset requesttel`.
 
-A feed maga közösségi platformon megosztható legkisebb elem, ami tartalmazhatja egy gyűjtőpont alapadatait, adott
-szükségleteit, illetve azok közelmúltbeli változásait.
+Megjelenítése képernyőnként eltérő lehet. 
+- Egy `aid center` nézetben egyszerű, végtelen / limitált / lapozható lista. De nagyon sűrű és ráadásul oda-vissza változtatások esetén valami csoportosítás / összevonás szükséges lehet.
+- Közös feed esetén (pl. címlap, vagy valamilyen szűrős lista) az azonos gyűjtőponthoz tartozó rövid időn belüli (egy óra?) változásokat csoportosítva jelenítjük meg.
+
+Egy feedet (legyen az konkrét `aid center` saját feedje, vagy közös feed például adott `asset category`-ra szűrve) meg lehet osztani, annak változásaira fel lehet majd (MVP+) iratkozni.
+
+### Feed Item
+
+Egy-egy `feed` sok-sok ilyen elemből áll.
+
+Tartozik hozzá:
+- Aid Center Id, amihez tartozik
+- Asset Category, amit a szülő `asset requesttől` másoltunk ide.
+- Asset (adomány típus), amit a szülő `asset requesttől` másoltunk ide.
+- Jegyzet (note), amit a szülő `asset requesttől` másoltunk ide.
+- Az esemény (tehát önmaga létrejöttének) időpontja
+- Az esemény valamilyen megnevezése. Ezek lehetnek:
+	- `urgent`: sürgős státusszal jött létre, vagy sürgős státuszra módosult azaz: _"Nagy szükség van banánra!"_
+	- `requested`: szükség van erre státusszal jött létre, vagy `not_required` státuszból `requested` státuszra változott, azaz: _"Szükség van banánra."_
+	- `changed to requested from urgent`: eddig a státusza `urgent` volt, de most már csak `requested` azaz _Most már nem sürgős a banán, de szükség van még rá._
+	- `not_required`: úgy jött létre, hogy ne hozzanak, vagy azzá lett, azaz: _"Banánt ne hozzatok!"_
+	- `deleted`: eddig `urgent` vagy `requested` volt, de most már törölve lett azaz _"Már nem gyűjtünk  banánt."_
+	- `changed to deleted from not_required`: eddig nem szabadott hozni, de most már hallgatunk róla azaz: _"Többé nem tilos banánt hozni."_
+- (Lehet hogy jó, ha tartozik hozzá egy string ami a szülő `asset request` egyedi azonosítóját tartalmazza, hogy a rövid időn belüli oda-vissza módosításokat biztosan helyen tudjuk csoportosítani.)
+
+Note: a `changed to` események léte, száma még formálódás alatt van.
+
 
 ### Organization / szervezet
 
