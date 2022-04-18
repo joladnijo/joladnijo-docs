@@ -71,17 +71,25 @@ Tartozik hozzá:
 - Asset (adomány típus), amit a szülő `asset requesttől` másoltunk ide.
 - Jegyzet (note), amit a szülő `asset requesttől` másoltunk ide.
 - Az esemény (tehát önmaga létrejöttének) időpontja
-- Az esemény valamilyen megnevezése. Ezek lehetnek:
-	- `urgent`: sürgős státusszal jött létre, vagy sürgős státuszra módosult azaz: _"Nagy szükség van banánra!"_
-	- `requested`: szükség van erre státusszal jött létre, vagy `not_required` státuszból `requested` státuszra változott, azaz: _"Szükség van banánra."_
-	- `changed to requested from urgent`: eddig a státusza `urgent` volt, de most már csak `requested` azaz _Most már nem sürgős a banán, de szükség van még rá._
-	- `not_required`: úgy jött létre, hogy ne hozzanak, vagy azzá lett, azaz: _"Banánt ne hozzatok!"_
-	- `deleted`: eddig `urgent` vagy `requested` volt, de most már törölve lett azaz _"Már nem gyűjtünk  banánt."_
-	- `changed to deleted from not_required`: eddig nem szabadott hozni, de most már hallgatunk róla azaz: _"Többé nem tilos banánt hozni."_
+- Az esemény azaz a változás leírása a `status_old` és `status_new` mezőkkel.
 - (Lehet hogy jó, ha tartozik hozzá egy string ami a szülő `asset request` egyedi azonosítóját tartalmazza, hogy a rövid időn belüli oda-vissza módosításokat biztosan helyen tudjuk csoportosítani.)
 
-Note: a `changed to` események léte, száma még formálódás alatt van.
+Megjelenítésnél a különféle `status_old`-ról `status_new`-ra változást másképp jelenítjük meg:
 
+| `status_old` | `status_new` | példa mondat |
+|---------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `null` | `urgent` | "Nagy szükségünk van erre: _gyümölcs (banán vagy barack)_" 
+| `requested` | `urgent` | "Nagy szükségünk van erre: _gyümölcs (banán vagy barack)_"
+| `not_required` | `urgent` | "Nagy szükségünk lett erre: _gyümölcs (banán vagy barack)_"
+| `null` | `requested` | "Szükségünk van erre: _gyümölcs (banán vagy barack)_" 
+| `urgent` | `requested` | "Már nem sürgős, de még szükségünk van erre: _gyümölcs (banán vagy barack)_"
+| `not_required` | `requested` | "Már szükségünk van erre: _gyümölcs (banán vagy barack)_"
+| `urgent` | `null` | "Már nincs szükségünk erre: _gyümölcs (banán vagy barack)_" 
+| `requested` | `null` | "Már nincs szükségünk erre: _gyümölcs (banán vagy barack)_"
+| `not_required` | `null` | "Már nem utasítjuk el ezt: _gyümölcs (banán vagy barack)_"
+| `null` | `not_required` | "Kérjük ne hozzon ezt: _gyümölcs (banán vagy barack)_" 
+| `urgent` | `not_required` | "Kérjünk most már ne hozzon ezt: _gyümölcs (banán vagy barack)_"
+| `not_required` | `not_required` | "Kérjünk most már ne hozzon ezt: _gyümölcs (banán vagy barack)_"
 
 ### Organization / szervezet
 
