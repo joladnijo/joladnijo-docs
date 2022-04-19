@@ -74,7 +74,7 @@ Tartozik hozzá:
 - Az esemény azaz a változás leírása a `status_old` és `status_new` mezőkkel.
 - (Lehet hogy jó, ha tartozik hozzá egy string ami a szülő `asset request` egyedi azonosítóját tartalmazza, hogy a rövid időn belüli oda-vissza módosításokat biztosan helyen tudjuk csoportosítani.)
 
-Megjelenítésnél a különféle `status_old`-ról `status_new`-ra változást másképp jelenítjük meg:
+Megjelenítésnél nem mindig jelenítjük meg az össze lehetséges változást. A lehetséges `status_old`-ról `status_new`-ra való változások az alábbiak:
 
 | `status_old` | `status_new` | példa mondat |
 |---------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------|
